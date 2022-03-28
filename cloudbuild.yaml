@@ -13,7 +13,6 @@ steps:
   entrypoint: "/bin/bash"
   args: ['-c', 'terraform show -json terraform.plan > terraform.json']
 - name: gcr.io/leszek-jinx-main/terraform-validator
-  entrypoint: "/bin/bash"
   args:
   - validate
   - terraform.json
