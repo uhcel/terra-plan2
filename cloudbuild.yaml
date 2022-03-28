@@ -1,0 +1,20 @@
+---
+steps:
+- name: hashicorp/terraform
+  entrypoint: terraform
+  args:
+  - init
+- name: hashicorp/terraform
+  entrypoint: terraform
+  args:
+  - plan
+  - -out=terraform.plan
+- name: gcr.io/config-validator/terraform-validator
+  entrypoint: "/bin/bash"
+  args: ['-c', 'terraform show -json terraform.plan > terraform.json']
+- name: gcr.io/config-validator/terraform-validator
+  dir: deployments/app1/dev
+  args:
+  - validate
+  - terraform.json
+  - --policy-path=../../../policy-library/
