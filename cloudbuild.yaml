@@ -1,9 +1,11 @@
 ---
 steps:
-- name: hashicorp/terraform
+- name: gcr.io/leszek-jinx-main/terraform-validator
+  entrypoint: terraform
   args:
   - init
-- name: hashicorp/terraform
+- name: gcr.io/leszek-jinx-main/terraform-validator
+  entrypoint: terraform
   args:
   - plan
   - -out=terraform.plan
