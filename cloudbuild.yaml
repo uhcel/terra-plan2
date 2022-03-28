@@ -1,10 +1,10 @@
 ---
 steps:
-- name: hashicorp/terraform
+- name: gcr.io/config-validator/terraform-validator
   entrypoint: terraform
   args:
   - init
-- name: hashicorp/terraform
+- name: gcr.io/config-validator/terraform-validator
   entrypoint: terraform
   args:
   - plan
