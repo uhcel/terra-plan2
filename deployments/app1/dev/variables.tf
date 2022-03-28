@@ -1,1 +1,1 @@
-ariable "app_project" {}
+variable "app_project" {}
