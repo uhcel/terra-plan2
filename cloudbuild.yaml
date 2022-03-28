@@ -2,9 +2,11 @@
 steps:
 - name: gcr.io/leszek-jinx-main/terraform-validator
   entrypoint: terraform
+  dir: /
   args:
   - init
 - name: gcr.io/leszek-jinx-main/terraform-validator
+  dir: /
   entrypoint: terraform
   args:
   - plan
@@ -12,7 +14,9 @@ steps:
 - name: gcr.io/leszek-jinx-main/terraform-validator
   entrypoint: "/bin/bash"
   args: ['-c', 'terraform show -json terraform.plan > terraform.json']
+  dir: /
 - name: gcr.io/leszek-jinx-main/terraform-validator
+  dir: /
   args:
   - validate
   - terraform.json
