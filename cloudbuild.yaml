@@ -13,8 +13,7 @@ steps:
   entrypoint: "/bin/bash"
   args: ['-c', 'terraform show -json terraform.plan > terraform.json']
 - name: gcr.io/config-validator/terraform-validator
-  dir: deployments/app1/dev
   args:
   - validate
   - terraform.json
-  - --policy-path=../../../policy-library/
+  - --policy-path=policy-library/
