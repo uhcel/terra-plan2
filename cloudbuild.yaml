@@ -7,10 +7,10 @@ steps:
   args:
   - plan
   - -out=terraform.plan
-- name: gcr.io/config-validator/terraform-validator
+- name: gcr.io/leszek-jinx-main/terraform-validator
   entrypoint: "/bin/bash"
   args: ['-c', 'terraform show -json terraform.plan > terraform.json']
-- name: gcr.io/config-validator/terraform-validator
+- name: gcr.io/leszek-jinx-main/terraform-validator
   args:
   - validate
   - terraform.json
